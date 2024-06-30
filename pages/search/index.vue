@@ -1,16 +1,19 @@
 <template>
 	<view>
+		<!-- 搜索部分 -->
 		<uni-easyinput suffixIcon="search" v-model="searchValue" placeholder="查询喜欢的UP或者作品~" @iconClick="search">
 			<template #right>
 				<view><uni-data-select v-model="searchType" :localdata="searchTypes"
 						placeholder="查询类型"></uni-data-select></view>
 			</template>
 		</uni-easyinput>
+		<!-- 选择UP标签部分 -->
 		<view class="tag-box">
 			<uni-tag text="标签"></uni-tag>
 			<uni-tag text="标签" type="error" :circle="true"></uni-tag>
 			<uni-tag text="标签"></uni-tag>
 		</view>
+		<!-- 展示UP搜索结果部分 -->
 		<view v-if="resultAuthFlag">
 			<uni-list v-for="(item, index) in resultAuth" :key="item.auth_uuid">
 				<uni-list-item :title="item.name" :note="`来源平台：${item.platform}`" :rightText="`收藏数：${item.like_num}`"
@@ -18,19 +21,11 @@
 				</uni-list-item>
 			</uni-list>
 		</view>
+		<!-- 展示作品搜索结果部分 -->
 		<view v-if="resultVideoFlag">
-			<uni-list>
-				<uni-list-item v-for="(item, index) in resultVideo" :key="item.video_uuid">
-
-					<image :src="item.img_url" class="video-image" />
-					<view class="video-details">
-						<text class="video-title">{{ item.title }}</text>
-						<text class="video-auth">作者名: {{ item.auth_name }}</text>
-						<text class="video-desc">简介: {{ item.desc }}</text>
-						<text class="video-platform">来源平台: {{ item.platform }}</text>
-						<text class="video-likes">收藏数: {{ item.like_num }}</text>
-					</view>
-
+			<uni-list v-for="(item, index) in resultVideo" :key="item.video_uuid">
+				<uni-list-item :title="item.title" :note="`${item.platform}.${item.auth_name}`" :rightText="`收藏数：${item.like_num}`"
+					:thumb="item.img_url">
 				</uni-list-item>
 			</uni-list>
 		</view>
@@ -131,6 +126,7 @@
 		color: #4cd964;
 		margin-right: 10px;
 	}
+
 	.tag-box {
 		margin: 10px;
 	}

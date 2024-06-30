@@ -128,14 +128,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.resultVideoFlag ? {
     l: common_vendor.f($data.resultVideo, (item, index, i0) => {
       return {
-        a: item.img_url,
-        b: common_vendor.t(item.title),
-        c: common_vendor.t(item.auth_name),
-        d: common_vendor.t(item.desc),
-        e: common_vendor.t(item.platform),
-        f: common_vendor.t(item.like_num),
-        g: item.video_uuid,
-        h: "617e3d8d-8-" + i0 + ",617e3d8d-7"
+        a: "617e3d8d-8-" + i0 + "," + ("617e3d8d-7-" + i0),
+        b: common_vendor.p({
+          title: item.title,
+          note: `${item.platform}.${item.auth_name}`,
+          rightText: `收藏数：${item.like_num}`,
+          thumb: item.img_url
+        }),
+        c: item.video_uuid,
+        d: "617e3d8d-7-" + i0
       };
     })
   } : {});
