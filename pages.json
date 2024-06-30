@@ -1,0 +1,65 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/search/index",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		}, {
+			"path": "pages/audio/index",
+			"style": {
+				"navigationBarTitleText": "播放"
+			}
+		}, {
+			"path": "pages/collection/index",
+			"style": {
+				"navigationBarTitleText": "收藏"
+			}
+		}, {
+			"path": "pages/profile/index",
+			"style": {
+				"navigationBarTitleText": "个人"
+			}
+		}
+
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+		"iconfontSrc": "", // app tabbar 字体.ttf文件路径 app 3.4.4+
+		"list": [{
+			"pagePath": "pages/search/index",
+			"text": "搜索",
+			"iconPath": "static/tabBar/search.png",
+			"selectedIconPath": "static/tabBar/monitor.png"
+		}, {
+			"pagePath": "pages/audio/index",
+			"text": "播放",
+			"iconPath": "static/tabBar/play-circle.png",
+			"selectedIconPath": "static/tabBar/play-circle-fill.png"
+		}, {
+			"pagePath": "pages/collection/index",
+			"text": "收藏",
+			"iconPath": "static/tabBar/folder.png",
+			"selectedIconPath": "static/tabBar/folder-open.png"
+		}, {
+			"pagePath": "pages/profile/index",
+			"text": "个人",
+			"iconPath": "static/tabBar/user.png",
+			"selectedIconPath": "static/tabBar/smile.png"
+		}],
+		"uniIdRouter": {}
+	}
+}
