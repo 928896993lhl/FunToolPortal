@@ -16,17 +16,16 @@ const _sfc_main = {
       resultAuthFlag: false,
       resultVideoFlag: false,
       resultAuth: [],
-      resultVideo: []
+      resultVideo: [],
+      authList: []
     };
   },
   onLoad() {
   },
   methods: {
     search() {
-      console.log("Search value:", this.searchValue);
-      console.log("searchType:", this.searchType);
       if (this.searchType == "0") {
-        this.resultAuth.push({
+        this.resultAuth = [{
           "name": "Test",
           "auth_uuid": "123456789",
           "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
@@ -38,12 +37,12 @@ const _sfc_main = {
           "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
           "platform": "BiliBili",
           "like_num": 999
-        });
+        }];
         this.resultAuthFlag = true;
         this.resultVideoFlag = false;
       }
       if (this.searchType == "1") {
-        this.resultVideo.push({
+        this.resultVideo = [{
           "title": "这是一个测试的标题",
           "video_uuid": "BV123456",
           "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
@@ -59,10 +58,20 @@ const _sfc_main = {
           "desc": "这是一个测试的视频简介2这是一个测试的视频简介这是一个测试的视频简介这是一个测试的视频简介这是一个测试的视频简介",
           "platform": "BiliBili",
           "like_num": 91
-        });
+        }];
         this.resultVideoFlag = true;
         this.resultAuthFlag = false;
       }
+    },
+    selectAuth(item) {
+      this.authList.push({
+        "name": item.name,
+        "auth_uuid": item.auth_uuid
+      });
+    },
+    deleteAuth(item) {
+      let idToDelete = item.auth_uuid;
+      this.authList = this.authList.filter((obj) => obj.auth_uuid !== idToDelete);
     }
   }
 };
@@ -97,46 +106,51 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       placeholder: "查询喜欢的UP或者作品~",
       modelValue: $data.searchValue
     }),
-    f: common_vendor.p({
-      text: "标签"
-    }),
-    g: common_vendor.p({
-      text: "标签",
-      type: "error",
-      circle: true
-    }),
-    h: common_vendor.p({
-      text: "标签"
-    }),
-    i: $data.resultAuthFlag
-  }, $data.resultAuthFlag ? {
-    j: common_vendor.f($data.resultAuth, (item, index, i0) => {
+    f: common_vendor.f($data.authList, (item, k0, i0) => {
       return {
-        a: "617e3d8d-6-" + i0 + "," + ("617e3d8d-5-" + i0),
-        b: common_vendor.p({
+        a: item.auth_uuid,
+        b: common_vendor.o(($event) => $options.deleteAuth(item), item.auth_uuid),
+        c: "617e3d8d-2-" + i0,
+        d: common_vendor.p({
+          circle: true,
+          text: item.name,
+          inverted: true,
+          type: "primary"
+        })
+      };
+    }),
+    g: $data.resultAuthFlag
+  }, $data.resultAuthFlag ? {
+    h: common_vendor.f($data.resultAuth, (item, index, i0) => {
+      return {
+        a: common_vendor.o(($event) => $options.selectAuth(item), item.auth_uuid),
+        b: "617e3d8d-4-" + i0 + "," + ("617e3d8d-3-" + i0),
+        c: common_vendor.p({
           title: item.name,
           note: `来源平台：${item.platform}`,
           rightText: `收藏数：${item.like_num}`,
-          thumb: item.img_url
+          thumb: item.img_url,
+          clickable: true
         }),
-        c: item.auth_uuid,
-        d: "617e3d8d-5-" + i0
+        d: item.auth_uuid,
+        e: "617e3d8d-3-" + i0
       };
     })
   } : {}, {
-    k: $data.resultVideoFlag
+    i: $data.resultVideoFlag
   }, $data.resultVideoFlag ? {
-    l: common_vendor.f($data.resultVideo, (item, index, i0) => {
+    j: common_vendor.f($data.resultVideo, (item, index, i0) => {
       return {
-        a: "617e3d8d-8-" + i0 + "," + ("617e3d8d-7-" + i0),
+        a: "617e3d8d-6-" + i0 + "," + ("617e3d8d-5-" + i0),
         b: common_vendor.p({
           title: item.title,
           note: `${item.platform}.${item.auth_name}`,
           rightText: `收藏数：${item.like_num}`,
-          thumb: item.img_url
+          thumb: item.img_url,
+          ["thumb-size"]: "lg"
         }),
         c: item.video_uuid,
-        d: "617e3d8d-7-" + i0
+        d: "617e3d8d-5-" + i0
       };
     })
   } : {});
