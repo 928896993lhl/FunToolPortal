@@ -1,0 +1,1 @@
+"use strict";const e=require("../../common/vendor.js"),t={data:()=>({title:"Hello"}),onLoad(){},methods:{}};if(!Array){e.resolveComponent("uni-icons")()}Math;const o=e._export_sfc(t,[["render",function(t,o,r,n,s,c){return{a:e.t(s.title),b:e.p({type:"search",size:"30"}),c:e.t(s.title)}}]]);wx.createPage(o);

@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{a}}</text><uni-icons wx:if="{{b}}" u-i="41d6a7fa-0" bind:__l="__l" u-p="{{b}}"></uni-icons><text class="title">{{c}}</text></view></view>

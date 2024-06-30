@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/search/index",
+    "pages/audio/index",
+    "pages/collection/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "iconfontSrc": "",
+    "list": [
+      {
+        "pagePath": "pages/search/index",
+        "text": "搜索",
+        "iconPath": "static/tabBar/search.png",
+        "selectedIconPath": "static/tabBar/monitor.png"
+      },
+      {
+        "pagePath": "pages/audio/index",
+        "text": "播放",
+        "iconPath": "static/tabBar/play-circle.png",
+        "selectedIconPath": "static/tabBar/play-circle-fill.png"
+      },
+      {
+        "pagePath": "pages/collection/index",
+        "text": "收藏",
+        "iconPath": "static/tabBar/folder.png",
+        "selectedIconPath": "static/tabBar/folder-open.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "个人",
+        "iconPath": "static/tabBar/user.png",
+        "selectedIconPath": "static/tabBar/smile.png"
+      }
+    ],
+    "uniIdRouter": {}
+  },
+  "usingComponents": {}
+}
