@@ -23,7 +23,7 @@ const _sfc_main = {
   onLoad() {
   },
   methods: {
-    search() {
+    async search() {
       if (this.searchType == "0") {
         this.resultAuth = [{
           "name": "Test",
@@ -43,6 +43,14 @@ const _sfc_main = {
       }
       if (this.searchType == "1") {
         this.resultVideo = [{
+          "title": '【无损音质】<em class="keyword">周杰伦</em>歌曲精选100首 歌词版纯享 地表最高音质 每一首都是顶级文案 中国流行音乐开拓者JAY',
+          "video_uuid": "612255353",
+          "img_url": "https://i0.hdslb.com/bfs/archive/b1c79744dcf00a7d40dbbf7a6d27ec4c2d2fbb01.png",
+          "auth_name": "无损音乐合集",
+          "desc": "【无损音质】周杰伦歌曲精选100首 歌词版纯享 地表最高音质 每一首都是顶级文案 中国流行音乐开拓者JAY",
+          "platform": "Bilibili",
+          "like_num": 0
+        }, {
           "title": "这是一个测试的标题",
           "video_uuid": "BV123456",
           "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
@@ -64,10 +72,12 @@ const _sfc_main = {
       }
     },
     selectAuth(item) {
-      this.authList.push({
-        "name": item.name,
-        "auth_uuid": item.auth_uuid
-      });
+      if (!this.authList.some((auth) => auth.auth_uuid === item.auth_uuid)) {
+        this.authList.push({
+          "name": item.name,
+          "auth_uuid": item.auth_uuid
+        });
+      }
     },
     deleteAuth(item) {
       let idToDelete = item.auth_uuid;
@@ -96,6 +106,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: common_vendor.o(($event) => $data.searchType = $event),
     b: common_vendor.p({
       localdata: $data.searchTypes,
+      clear: false,
       placeholder: "查询类型",
       modelValue: $data.searchType
     }),
@@ -115,7 +126,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
           circle: true,
           text: item.name,
           inverted: true,
-          type: "primary"
+          type: "success"
         })
       };
     }),
@@ -126,9 +137,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         a: common_vendor.o(($event) => $options.selectAuth(item), item.auth_uuid),
         b: "617e3d8d-4-" + i0 + "," + ("617e3d8d-3-" + i0),
         c: common_vendor.p({
-          title: item.name,
-          note: `来源平台：${item.platform}`,
-          rightText: `收藏数：${item.like_num}`,
+          title: `${item.name}.${item.platform}`,
+          note: `收藏数：${item.like_num}`,
           thumb: item.img_url,
           clickable: true
         }),
@@ -141,16 +151,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.resultVideoFlag ? {
     j: common_vendor.f($data.resultVideo, (item, index, i0) => {
       return {
-        a: "617e3d8d-6-" + i0 + "," + ("617e3d8d-5-" + i0),
-        b: common_vendor.p({
-          title: item.title,
-          note: `${item.platform}.${item.auth_name}`,
-          rightText: `收藏数：${item.like_num}`,
-          thumb: item.img_url,
-          ["thumb-size"]: "lg"
-        }),
-        c: item.video_uuid,
-        d: "617e3d8d-5-" + i0
+        a: item.img_url,
+        b: item.title,
+        c: common_vendor.t(item.auth_name),
+        d: common_vendor.t(item.platform),
+        e: common_vendor.t(item.like_num),
+        f: "617e3d8d-6-" + i0 + "," + ("617e3d8d-5-" + i0),
+        g: item.video_uuid,
+        h: "617e3d8d-5-" + i0
       };
     })
   } : {});

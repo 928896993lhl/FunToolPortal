@@ -1287,7 +1287,7 @@ function populateParameters(fromRes, toRes) {
   let _SDKVersion = SDKVersion;
   const hostLanguage = language.replace(/_/g, "-");
   const parameters = {
-    appId: "",
+    appId: "__UNI__FFCDB70",
     appName: "FunToolPortal",
     appVersion: "1.0.0",
     appVersionCode: "100",
@@ -1431,7 +1431,7 @@ const getAppBaseInfo = {
       hostName: _hostName,
       hostSDKVersion: SDKVersion,
       hostTheme: theme,
-      appId: "",
+      appId: "__UNI__FFCDB70",
       appName: "FunToolPortal",
       appVersion: "1.0.0",
       appVersionCode: "100",
@@ -6903,7 +6903,7 @@ const globalStyle = {
 };
 const tabBar = {
   color: "#7A7E83",
-  selectedColor: "#3cc51f",
+  selectedColor: "#4cd964",
   borderStyle: "black",
   backgroundColor: "#ffffff",
   height: "50px",
@@ -7235,7 +7235,7 @@ function I(e2) {
 const S = true, b = "mp-weixin", A = I([]), P = b, T = I(""), C = I("[]") || [];
 let O = "";
 try {
-  O = "";
+  O = "__UNI__FFCDB70";
 } catch (e2) {
 }
 let E = {};
