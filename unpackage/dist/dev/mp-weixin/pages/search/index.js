@@ -1,5 +1,7 @@
 "use strict";
+const api_api = require("../../api/api.js");
 const common_vendor = require("../../common/vendor.js");
+require("../../utils/request.js");
 const _sfc_main = {
   data() {
     return {
@@ -25,50 +27,44 @@ const _sfc_main = {
   methods: {
     async search() {
       if (this.searchType == "0") {
-        this.resultAuth = [{
-          "name": "Test",
-          "auth_uuid": "123456789",
-          "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
-          "platform": "BiliBili",
-          "like_num": 99
-        }, {
-          "name": "Test2",
-          "auth_uuid": "1234567892",
-          "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
-          "platform": "BiliBili",
-          "like_num": 999
-        }];
-        this.resultAuthFlag = true;
-        this.resultVideoFlag = false;
+        try {
+          var params = {
+            "keyword": this.searchValue,
+            "search_type": this.searchType,
+            "page_no": 1,
+            "page_size": 10
+            //暂定写死，之后优化应该不需要传
+          };
+          let res = await api_api.ciliSearch(params);
+          console.log("res: ", res);
+          if (res && res.code == "0") {
+            this.resultAuth = res.auth_result;
+            this.resultAuthFlag = true;
+            this.resultVideoFlag = false;
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
       }
       if (this.searchType == "1") {
-        this.resultVideo = [{
-          "title": '【无损音质】<em class="keyword">周杰伦</em>歌曲精选100首 歌词版纯享 地表最高音质 每一首都是顶级文案 中国流行音乐开拓者JAY',
-          "video_uuid": "612255353",
-          "img_url": "https://i0.hdslb.com/bfs/archive/b1c79744dcf00a7d40dbbf7a6d27ec4c2d2fbb01.png",
-          "auth_name": "无损音乐合集",
-          "desc": "【无损音质】周杰伦歌曲精选100首 歌词版纯享 地表最高音质 每一首都是顶级文案 中国流行音乐开拓者JAY",
-          "platform": "Bilibili",
-          "like_num": 0
-        }, {
-          "title": "这是一个测试的标题",
-          "video_uuid": "BV123456",
-          "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
-          "auth_name": "测试的UP名",
-          "desc": "这是一个测试的视频简介这是一个测试的视频简介这是一个测试的视频简介",
-          "platform": "BiliBili",
-          "like_num": 9
-        }, {
-          "title": "这是一个测试的标题2",
-          "video_uuid": "BV1234562",
-          "img_url": "https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png",
-          "auth_name": "测试的UP名2",
-          "desc": "这是一个测试的视频简介2这是一个测试的视频简介这是一个测试的视频简介这是一个测试的视频简介这是一个测试的视频简介",
-          "platform": "BiliBili",
-          "like_num": 91
-        }];
-        this.resultVideoFlag = true;
-        this.resultAuthFlag = false;
+        try {
+          var params = {
+            "keyword": this.searchValue,
+            "search_type": this.searchType,
+            "page_no": 1,
+            "page_size": 10
+            //暂定写死，之后优化应该不需要传
+          };
+          let res = await api_api.ciliSearch(params);
+          console.log("res: ", res);
+          if (res && res.code == "0") {
+            this.resultVideo = res.video_result;
+            this.resultVideoFlag = true;
+            this.resultAuthFlag = false;
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
       }
     },
     selectAuth(item) {

@@ -9647,3 +9647,4 @@ exports.p = p$1;
 exports.resolveComponent = resolveComponent;
 exports.s = s$1;
 exports.t = t$1;
+exports.wx$1 = wx$1;

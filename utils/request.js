@@ -1,5 +1,5 @@
 // 全局请求封装
-const base_url = 'http://localhost:996'
+const base_url = 'http://localhost:8080'
 // 需要修改token，和根据实际修改请求头
 export default (params) => {
 	let url = params.url;
@@ -27,7 +27,7 @@ export default (params) => {
 				// 根据返回的状态码做出对应的操作
 				//获取成功
 				console.log(res.statusCode);
-				if (res.statusCode == 0) {
+				if (res.statusCode == 200) {
 					resolve(res.data);
 				} else {
 					uni.clearStorageSync()

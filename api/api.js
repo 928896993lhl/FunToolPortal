@@ -4,7 +4,7 @@ import request from '@/utils/request'
 // 以下 api 为博主项目示例，实际与项目相匹配
 
 // 分页查询学习列表
-export const ciliSearch = (params) => {
+export async function ciliSearch(params) {
     return request({
         url: '/cili/search/v1',
         method: 'get',
