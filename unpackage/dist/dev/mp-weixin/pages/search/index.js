@@ -1,7 +1,6 @@
 "use strict";
 const api_api = require("../../api/api.js");
 const common_vendor = require("../../common/vendor.js");
-require("../../utils/request.js");
 const _sfc_main = {
   data() {
     return {
@@ -159,5 +158,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   } : {});
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/CodeWork/Code/FunToolPortal/pages/search/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
 wx.createPage(MiniProgramPage);

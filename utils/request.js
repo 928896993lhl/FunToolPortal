@@ -1,5 +1,6 @@
 // 全局请求封装
-const base_url = 'http://localhost:8080'
+// const base_url = 'http://funtool.cloud'
+const base_url = 'http://localhost:80'
 // 需要修改token，和根据实际修改请求头
 export default (params) => {
 	let url = params.url;
@@ -8,7 +9,8 @@ export default (params) => {
 	let header = {}
 	if (method == "post") {
 		header = {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Referer': 'https://www.bilibili.com'
 		};
 	}
 	// 获取本地token,暂时先不做

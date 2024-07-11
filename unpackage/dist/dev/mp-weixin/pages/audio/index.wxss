@@ -1,23 +1,87 @@
 
 .content {
+		width: 100vw;
+		height: calc(100vh - 44px - env(safe-area-inset-top));
+		background-color: #1A262D;
+		color: #fff;
+}
+.main-container {
+		width: 100vw;
+		height: 46vh;
+}
+.line_box {
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		width: 92%;
+		height: 60px;
+		border-radius: 8px;
+		margin: 10px auto;
+		border: 2px solid #eee;
+		background-color: aquamarine;
+		color: #333;
+		font-weight: bold;
 }
-.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-}
-.text-area {
+.audio_control {
 		display: flex;
-		justify-content: center;
+		align-items: center;
+		justify-content: space-around;
+		color: #333;
+		margin-top: 40px;
 }
-.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+.audio_control view {
+		width: 100px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		background: #edeeab;
+		border: 1px solid #eee;
+		border-radius: 6px;
+}
+.audio_box {
+		width: 90%;
+
+		margin: 30px auto;
+}
+.current_title {
+		margin-bottom: 20px;
+		font-weight: bold;
+		font-size: 18px;
+}
+.bgc_line {
+		background-color: #e1964b;
+}
+.show_time {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 12rpx;
+}
+.music-progress-bar {
+		position: relative;
+		width: 100%;
+		height: 6rpx;
+		border-radius: 6rpx;
+		background-color: #f3e7d9;
+}
+.progress-bar-line {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 2%;
+		height: 100%;
+		border-radius: 6rpx;
+		background-color: #e1964b;
+}
+.progress-bar-line::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		right: 0%;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 20rpx;
+		height: 20rpx;
+		background-color: #fff;
+		border-radius: 50%;
 }

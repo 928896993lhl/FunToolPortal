@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const common_assets = require("../../common/assets.js");
 const _sfc_main = {
   data() {
     return {
@@ -20,13 +21,14 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.t($data.title),
-    b: common_vendor.p({
+    a: common_assets._imports_0,
+    b: common_vendor.t($data.title),
+    c: common_vendor.p({
       type: "search",
       size: "30"
     }),
-    c: common_vendor.t($data.title)
+    d: common_vendor.t($data.title)
   };
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/CodeWork/Code/FunToolPortal/pages/collection/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
 wx.createPage(MiniProgramPage);

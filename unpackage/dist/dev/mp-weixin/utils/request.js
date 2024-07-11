@@ -1,6 +1,6 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
-const base_url = "http://localhost:8080";
+const base_url = "http://localhost:80";
 const request = (params) => {
   let url = params.url;
   let method = params.method || "get";
@@ -8,7 +8,8 @@ const request = (params) => {
   let header = {};
   if (method == "post") {
     header = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Referer": "https://www.bilibili.com"
     };
   }
   return new Promise((resolve, reject) => {

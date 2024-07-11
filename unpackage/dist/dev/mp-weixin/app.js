@@ -18,9 +18,16 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/CodeWork/Code/FunToolPortal/App.vue"]]);
 function createApp() {
-  const app = common_vendor.createSSRApp(App);
+  const app = common_vendor.createSSRApp(_sfc_main);
+  const innerAudioContext = common_vendor.index.createInnerAudioContext();
+  innerAudioContext.onError((res) => {
+    console.log("音乐播放报错监听", res);
+  });
+  innerAudioContext.onWaiting((res) => {
+    console.log("音乐加载中监听", res);
+  });
+  app.config.globalProperties.$AudioContext = innerAudioContext;
   return {
     app
   };
