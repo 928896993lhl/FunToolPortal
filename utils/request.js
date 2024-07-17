@@ -10,13 +10,15 @@ export default (params) => {
 	if (method == "post") {
 		header = {
 			'Content-Type': 'application/json',
-			'Referer': 'https://www.bilibili.com'
+			'token': 'https://www.bilibili.com'
 		};
 	}
 	// 获取本地token,暂时先不做
-	// if (uni.getStorageSync("token")) {
-	// 	header['Authorization'] = 'Bearer ' + uni.getStorageSync("token");
-	// }
+	if (uni.getStorageSync("token")) {
+		// header['Authorization'] = 'Bearer ' + uni.getStorageSync("token");
+	} else{
+		header['token'] = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MjdjNWEzODJjNzg0MjM5YTliNTMxZDgwZTBjN2NiZCIsInN1YiI6IjEiLCJpc3MiOiJzZyIsImlhdCI6MTcyMTIyOTkwNCwiZXhwIjoxNzUyNzY1OTA0fQ.AmMdpPZ1JaxGDfyMVu1xLI_roklEvhjckZQ8YsuxxKo';
+	}
 
 	return new Promise((resolve, reject) => {
 		uni.request({

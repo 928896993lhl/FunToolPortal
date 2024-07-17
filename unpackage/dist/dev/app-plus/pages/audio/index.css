@@ -7,7 +7,7 @@
 }
 .main-container {
 		width: 100vw;
-		height: 30vh;
+		height: 46vh;
 }
 .line_box {
 		display: flex;
@@ -29,7 +29,7 @@
 		color: #333;
 		margin-top: 40px;
 }
-.audio_control view {
+.audio_control uni-view {
 		width: 100px;
 		height: 40px;
 		text-align: center;
@@ -55,13 +55,13 @@
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		margin-top: 12rpx;
+		margin-top: 0.375rem;
 }
 .music-progress-bar {
 		position: relative;
 		width: 100%;
-		height: 6rpx;
-		border-radius: 6rpx;
+		height: 0.1875rem;
+		border-radius: 0.1875rem;
 		background-color: #f3e7d9;
 }
 .progress-bar-line {
@@ -70,7 +70,7 @@
 		left: 0%;
 		width: 2%;
 		height: 100%;
-		border-radius: 6rpx;
+		border-radius: 0.1875rem;
 		background-color: #e1964b;
 }
 .progress-bar-line::after {
@@ -80,8 +80,8 @@
 		right: 0%;
 		top: 50%;
 		transform: translateY(-50%);
-		width: 20rpx;
-		height: 20rpx;
+		width: 0.625rem;
+		height: 0.625rem;
 		background-color: #fff;
 		border-radius: 50%;
 }

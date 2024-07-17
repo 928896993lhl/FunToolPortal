@@ -1,16 +1,12 @@
 <template>
 	<view class="content">
-		<scroll-view class="main-container" scroll-y>
-			<view class="line_box" :class="currentIndex === index ? 'line_box bgc_line' : 'line_box'"
-				v-for="(item, index) in audioList" :key="item.id" @click="handleCurrentAudio(index)">
-				{{item.title}}
-			</view>
-		</scroll-view>
+		<view class="image-content">
+			<image :mode="aspectFit" :src="pic" @error="imageError"></image>
+		</view>
 		<view class="audio_box">
 			<view class="current_title" v-show="currentTitle">
 				当前播放歌曲：{{currentTitle}}
 			</view>
-
 			<view class="music-progress-bar" @click="progressClick">
 				<view class="progress-bar-line" :style="{width: playInfo.progressWidth + '%'}"
 					@touchmove="progressMouseMove" @touchend="progressMouseDown"></view>
@@ -25,7 +21,12 @@
 				<view @click="hanleAudioChange('next')">下一首</view>
 			</view>
 		</view>
-
+		<scroll-view class="main-container" scroll-y>
+			<view class="line_box" :class="currentIndex === index ? 'line_box bgc_line' : 'line_box'"
+				v-for="(item, index) in audioList" :key="item.id" @click="handleCurrentAudio(index)">
+				{{item.title}}
+			</view>
+		</scroll-view>
 	</view>
 </template>
 
@@ -45,25 +46,17 @@
 					duration: 0, // 当前音乐总时间s
 					durationValue: '00:00', // 总时间转换展示 
 				},
+				pic:"http://i1.hdslb.com/bfs/archive/e281360e6d36e645dbc1146cb9e7027fbf80f917.jpg",
 				audioList: [{
-						title: '未完成之前',
-						src: 'https://music.163.com/song/media/outer/url?id=1453946527.mp3',
-						id: 1453946527,
-					},
-					{
-						title: '鲜花',
-						src: 'https://music.163.com/song/media/outer/url?id=2086327879.mp3',
-						id: 2086327879,
-					},
-					{
 						title: '水星记',
 						src: 'https://music.163.com/song/media/outer/url?id=441491828.mp3',
 						id: 441491828,
 					},
 					{
-						title: '人生有时候懂得放弃',
-						src: 'https://music.163.com/song/media/outer/url?id=2139388989.mp3',
+						title: '【最伟大的作品 | 官方MV 】周杰伦 化身时空旅人与艺术家们相遇',
+						src: "https://xy112x3x27x19xy.mcdn.bilivideo.cn:8082/v1/resource/765060141_nb3-1-30280.m4s?agrr=0&build=0&buvid=&bvc=vod&bw=39897&cdnid=10197&deadline=1721238886&e=ig8euxZM2rNcNbdlhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M%3D&f=u_0_0&gen=playurlv2&logo=80000000&mid=0&nbs=1&nettype=0&og=cos&oi=613737956&orderid=0%2C3&os=bcache&platform=pc&sign=b4ad39&traceid=trOpOaGbsztCRU_0_e_N&uipk=5&uparams=e%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%2Cog&upsig=605cfd20df779070b339c585f3707cc0",
 						id: 2139388989,
+						pic: "http://i1.hdslb.com/bfs/archive/e281360e6d36e645dbc1146cb9e7027fbf80f917.jpg"
 					},
 					{
 						title: '精卫',
@@ -223,7 +216,7 @@
 
 	.main-container {
 		width: 100vw;
-		height: 46vh;
+		height: 30vh;
 	}
 
 	.line_box {
